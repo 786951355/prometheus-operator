@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #这是个部署prometheus-operator的yaml文件
 版本号：0.26.0
 部署方式：yaml文件手工，非helm
@@ -136,4 +137,4 @@
 		  - url: 'http://prometheus-webhook-dingtalk:5358/dingtalk/webhook1/send'
 
        
-        
+   
