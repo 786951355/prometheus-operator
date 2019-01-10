@@ -1,0 +1,33 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  clusterName: ""
+  generation: 0
+  labels:
+    app: exporter-kube-etcd
+    chart: exporter-kube-etcd-0.1.15
+    component: kube-etcd
+    heritage: Tiller
+    prometheus: kube-prometheus
+    release: kube-prometheus
+  name: kube-etcd
+  namespace: monitoring
+  resourceVersion: "30737037"
+spec:
+  endpoints:
+  - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+    interval: 15s
+    port: http-metrics
+    scheme: http
+    #tlsConfig:
+      #caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt 
+      #certFile: 
+      #keyFile: 
+  jobLabel: component
+  namespaceSelector:
+    matchNames:
+    - kube-system
+  selector:
+    matchLabels:
+      app: exporter-kube-etcd
+      component: kube-etcd

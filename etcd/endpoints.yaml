@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  #creationTimestamp: 2019-01-04T09:44:40Z
+  labels:
+    app: exporter-kube-etcd
+    chart: exporter-kube-etcd-0.1.15
+    component: kube-etcd
+    heritage: Tiller
+    release: kube-prometheus
+  name: kube-etcd
+  namespace: kube-system
+  resourceVersion: "30253869"
+subsets:
+- addresses:
+  - ip: 192.168.79.130
+  - ip: 192.168.79.131
+  - ip: 192.168.79.132
+  ports:
+  - name: http-metrics
+    port: 2222
+    protocol: TCP
