@@ -17,7 +17,7 @@
         monitoring/prometheus/0 (2/11 active targets)  
         
 部署时候有一些坑的说明：  
-#1.添加dns的监控
+1.添加dns的监控
 		
 		在kube-dns的service.yaml里添加一下内容，千万不要盲目添加dns的service，会把整个k8s集群dns无法解析的！
 		labels:   #因为servicemonitor用这个标签来寻找service
@@ -35,7 +35,7 @@
         selector: 
           k8s-app: kube-dns 
           
-#2.添加etcd的监控：
+2.添加etcd的监控：
        我的etcd集群是在k8s外面二进制部署的，要监控得在k8s上添加endpoints，service，servicemonitor
        修改etcd/endpoints.yaml的ip地址及端口，协议，按自己的需求看情况
        我用的是http方式，因为测试https没成功把TSL证书传进prometheus里，所以修改了etcd的配置打开了http的metrics
@@ -70,7 +70,7 @@
        
        有这些metrics就配置对了
 		
-#3.无法发现kube-controller-manager和kube-scheduler的Endpoint
+3.无法发现kube-controller-manager和kube-scheduler的Endpoint
 ![](/Users/guleng/Desktop/WX20190110-182332.png)
 
 		原因都是k8s自带service没有kube-controller-manager和kube-scheduler没有labels导致找不到Endpoint
@@ -78,7 +78,7 @@
 		部署controller-scheduler目录下的yaml就可以了，但是请看自己的场景是不是master集群，
 		按照自己的集群修改配置文件的ip地址，要是HA模式就添加三个ip地址！！！
 		
-#4.配置alertmanager的报警：
+4.配置alertmanager的报警：
 	
 		修改alertmanager/alertmanager-secret.yaml的base64编码段，把自己的配置编码一节更改即可，
 		要是修改错会alertmanager会起不来
