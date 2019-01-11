@@ -137,4 +137,9 @@
 		  - url: 'http://prometheus-webhook-dingtalk:5358/dingtalk/webhook1/send'
 
        
+   5.grafana的dashbord更改或添加：
    
+   	在grafana的部署yaml里按照之前有的用configMap方式把新的dashbord mountPath：进去即可
+		
+		
+       
