@@ -83,7 +83,7 @@
 		修改alertmanager/alertmanager-secret.yaml的base64编码段，把自己的配置编码一节更改即可，
 		要是修改错会alertmanager会起不来
 		
-		我的个人的报警配置：支持微信，邮件，钉钉(专门起了个pod  webhook方式发送消息)
+		我的个人的报警配置：支持微信，邮件，钉钉(专门起了个pod  webhook方式发送消息[pod为prometheus-webhook-dingtalk.yaml])
 		global:
 		  resolve_timeout: 2s
 		route:
