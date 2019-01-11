@@ -71,7 +71,7 @@
        有这些metrics就配置对了
 		
 3.无法发现kube-controller-manager和kube-scheduler的Endpoint
-![](/Users/guleng/Desktop/WX20190110-182332.png)
+![](11.png)
 
 		原因都是k8s自带service没有kube-controller-manager和kube-scheduler没有labels导致找不到Endpoint
 		我们添加新的Endpoint及service(原因是这俩个组件是二进制方式部署的)，servicemonitor
